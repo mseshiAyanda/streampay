@@ -20,7 +20,7 @@ def index(request):
 
     return render(request, 'index.html', context)
 
-def Register(request):
+def register(request):
     form = CreateUserForm
     if request.method == 'POST':
                 form = CreateUserForm(request.POST)

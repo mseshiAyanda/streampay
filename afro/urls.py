@@ -7,9 +7,9 @@ from django.contrib.auth import views as auth_views
 app_name = 'afro'
 urlpatterns = [
     path('', views.index, name='home'),
-    path('about-us/', views.About, name='aboutus'),
+    path('about-us/', views.about, name='aboutus'),
 
     path('register/', views.register, name='register'),
-    path('login/', views.login, name='login'),
-    path('logout/', views.logout, name='logout'),
+    path('login/', views.login1, name='login'),
+    path('logout/', views.logoutUser, name='logout'),
 ]    

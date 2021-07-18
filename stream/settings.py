@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -74,10 +75,28 @@ WSGI_APPLICATION = 'stream.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+if 'RDS_HOSTNAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['aa153sifrd4u7ji'],
+            'USER': os.environ['Younead'],
+            'PASSWORD': os.environ['ayandaDla'],
+            'HOST': os.environ['aa153sifrd4u7ji.cvcxqgqpgcnx.us-west-2.rds.amazonaws.com'],
+            'PORT': os.environ['5432'],
+        }
+    }
+else:
+
+  DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'AfroStream',
+        'USER': 'postgres',
+        'PASSWORD': 'Amd!1998',
+        'HOST': 'localhost',
+        'PORT': '5000',
     }
 }
 
