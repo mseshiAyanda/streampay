@@ -4,7 +4,16 @@ from django.contrib.auth.forms import UserCreationForm
 
 from .filters import ContentFilter
 
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, HttpResponse, redirect
+from django.contrib.auth.decorators import login_required
+
+from django.contrib.auth.models import User, auth
+
 from .models import Content
+from django.contrib import messages
+
+from .forms import CreateUserForm
 
 
 
@@ -64,3 +73,13 @@ def logoutUser(request):
 
 def about(request):
     return render(request, 'aboutus.html')    
+
+
+def info(request, pk):
+    content = Content.objects.filter(id=pk)
+            
+
+    context= {'content':content}
+
+
+    return render(request, 'info.html', context) 
