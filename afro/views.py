@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse,StreamingHttpResponse, HttpResponseServerError
 from django.contrib.auth.forms import UserCreationForm
 
@@ -10,11 +10,14 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.models import User, auth
 
-from .models import Content
+from .models import *
 from django.contrib import messages
 
 from .forms import CreateUserForm
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 
 
 
