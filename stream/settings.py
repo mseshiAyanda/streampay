@@ -93,7 +93,7 @@ else:
 
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'AfroStream',
+        'NAME': 'AfroStreams',
         'USER': 'postgres',
         'PASSWORD': 'Amd!1998',
         'HOST': 'localhost',
