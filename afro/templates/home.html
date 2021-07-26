@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+ 
+  {% block title %}
+    Welcome to AfroStream
+  {% endblock %}
+
+  
+  
+{% block content%}
+<style>
+	#content{
+    opacity: 8;
+    left: 30px;
+    background-color: ;
+    
+  }
+  
+
+</style>
+
+
+
+<div>
+<h1><strong></strong></h1>
+<br>
+
+<h3>Filter Here<h3>
+<div class="raw" >
+  <div class="col">
+      <div class="card card-body" id="search1">
+        
+         <form method="get" >
+              {{ myfilter.form }}
+         <button class="btn btn-primary" type="submit">
+         Search</button>
+         <form>
+      </div>  
+  </div>
+</div>
+<br>
+<br>
+
+<div>
+{% for x in content %}
+<div id='content'>
+
+    
+    <a target="_blank" class="btn btn-sm btn-color-black" href="/i'm-interested/{{x.id}}">
+    </a>
+    
+    
+    <video class="embed-responsive embed-responsive-16by9" controls="controls" >
+        
+        <source src="{{x.Video_content.url}}" type="video/mp4" />
+    
+        
+    </video>
+    <h3 class="mt-2 mb-2">{{x.name}}</h3>
+    <button><a target="_blank" class="btn btn-sm btn-color-black" href="{% url 'afro:more-info' x.id %}">More Info</a></button>
+    <br>
+        
+</div> 
+   <br>
+   <br>
+{% endfor %}
+</div>
+
+
+      
+
+{% endblock %}
