@@ -150,3 +150,5 @@ AUTH_USER_MODEL = 'afro.User'
 VERIFY_EXPIRE_DAYS = 3
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+PAYSTACK_SECRET_KEY = os.environ.get('PAYSTACK_KEY')

@@ -58,12 +58,20 @@
     <h3 class="mt-2 mb-2">{{x.name}}</h3>
     <button><a target="_blank" class="btn btn-sm btn-color-black" href="{% url 'afro:more-info' x.id %}">More Info</a></button>
     <br>
+    
         
 </div> 
    <br>
    <br>
 {% endfor %}
 </div>
+
+<div class="container">
+        <p>Hi Am here... I have a subscription plan.</p>
+        <p class="alert btn-success">
+            {{ sub.user_membership.membership }} Plan
+        </p>
+    </div>
 
 
       

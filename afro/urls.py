@@ -7,8 +7,10 @@ from django.contrib.auth import views as auth_views
 
 app_name = 'afro'
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.home, name='index'), #index.html
     url(r'^login/$', views.signin, name='login'),
+    url(r'^home/$', views.index, name='home'), #home.html
+
     url(r'^check-mail-ajax/$', views.check_mail_ajax, name='check_mail_ajax'),
     path('about-us/', views.about, name='aboutus'),
     url(r'^register/$', Register.as_view(), name='register'),

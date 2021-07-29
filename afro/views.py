@@ -52,7 +52,7 @@ def home(request):
     context= {'content':content, 'myfilter':myFilter}
 
 
-    return render(request, 'home.html', context)
+    return render(request, 'index.html', context)
 
 def index(request):
 	user_membership = UserMembership.objects.get(user=request.user)
