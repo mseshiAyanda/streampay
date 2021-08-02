@@ -102,7 +102,7 @@ class Login(APIView):
 		email = request.data.get('email')
 		password = request.data.get('password')
 
-		# Let us check if the user exists or not...
+		
 		check_email = User.objects.filter(email=email).exists()
 		if check_email == False:
 			return Response({'error': 'No account with such email'})
