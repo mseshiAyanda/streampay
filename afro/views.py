@@ -137,10 +137,11 @@ def subscribe(request):
 	def init_payment(request):
 		url = 'https://api.paystack.co/transaction/initialize'
 		headers = {
-			'Authorization': 'Bearer '+settings.PAYSTACK_SECRET_KEY,
+			"Authorization": "Bearer " + settings.PAYSTACK_SECRET_KEY,
 			'Content-Type' : 'application/json',
 			'Accept': 'application/json',
 			}
+	
 		datum = {
 			"email": request.user.email,
 			"amount": price
@@ -158,6 +159,7 @@ def subscribe(request):
 	UserMembership.objects.filter(user=instance.user).update(reference_code=initialized['data']['reference'])
 	link = initialized['data']['authorization_url']
 	return HttpResponseRedirect(link)
+
 	return render(request, 'subscribe.html')
 
 def call_back_url(request):
