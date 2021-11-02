@@ -137,7 +137,7 @@ def subscribe(request):
 	def init_payment(request):
 		url = 'https://api.paystack.co/transaction/initialize'
 		headers = {
-			"Authorization": "Bearer " + settings.PAYSTACK_SECRET_KEY,
+			"Authorization": "Bearer " + "sk_test_1931cfe03f6dc80d883f773ef453966546fb9628",
 			'Content-Type' : 'application/json',
 			'Accept': 'application/json',
 			}

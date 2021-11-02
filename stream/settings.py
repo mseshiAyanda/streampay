@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-from decouple import config
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,11 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'django-insecure-jqff7maunt=8dk$9#x@dvuss6sd-%slg(!-rm*@=mt^!&$f129'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mseshiazure.azurewebsites.net']
 
 
 # Application definition
@@ -76,30 +77,25 @@ WSGI_APPLICATION = 'stream.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if 'RDS_HOSTNAME' in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ['aa153sifrd4u7ji'],
-            'USER': os.environ['Younead'],
-            'PASSWORD': os.environ['ayandaDla'],
-            'HOST': os.environ['aa153sifrd4u7ji.cvcxqgqpgcnx.us-west-2.rds.amazonaws.com'],
-            'PORT': os.environ['5432'],
-        }
-    }
-else:
-
-  DATABASES = {
-
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'AfroStreams',
-        'USER': 'postgres',
-        'PASSWORD': 'Amd!1998',
-        'HOST': 'localhost',
-        'PORT': '5000',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+#DATABASES = {
+
+ #   'default': {
+ #       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+ #       'NAME': '',
+ #       'USER': '',
+  #      'PASSWORD': '',
+   #     'HOST': 'localhost',
+   #     'PORT': '5000',
+   # }
+#}
 
 
 # Password validation
@@ -140,6 +136,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,"media/")
 
@@ -151,4 +152,4 @@ VERIFY_EXPIRE_DAYS = 3
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-PAYSTACK_SECRET_KEY = os.environ.get('PAYSTACK_KEY')
+PAYSTACK_SECRET_KEY = ''
